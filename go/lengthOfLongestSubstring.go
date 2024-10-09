@@ -58,7 +58,6 @@ func lengthOfLongestSubstringO3n(s string) int {
 
 // try to do it with O(n^2)
 func lengthOfLongestSubstring(s string) int {
-	// Create a map to store the last index of each character
 	charIndexMap := make(map[byte]int)
 	maxLength := 0
 	start := 0
@@ -68,13 +67,44 @@ func lengthOfLongestSubstring(s string) int {
 		for start = i; start < len(s); start++ {
 			_, found := charIndexMap[s[start]]
 			if found {
-				length := start - i
+				length := len(charIndexMap)
 				if length > maxLength {
 					maxLength = length
 				}
 				break
 			}
 			charIndexMap[s[start]] = start
+			if start == len(s)-1 {
+				length := len(charIndexMap)
+				if length > maxLength {
+					maxLength = length
+				}
+			}
+		}
+	}
+
+	return maxLength
+}
+
+func lengthOfLongestSubstring2(s string) int {
+	// Create a map to store the last index of each character
+	charIndexMap := make(map[byte]int)
+	maxLength := 0
+	start := 0
+
+	for i := 0; i < len(s); i++ {
+		// If the character is found in the map and is within the current substring
+		if index, found := charIndexMap[s[i]]; found && index >= start {
+			start = index + 1
+		}
+
+		// Update the last index of the character in the map
+		charIndexMap[s[i]] = i
+
+		// Calculate the maximum length of the substring
+		currentLength := i - start + 1
+		if currentLength > maxLength {
+			maxLength = currentLength
 		}
 	}
 
@@ -82,8 +112,8 @@ func lengthOfLongestSubstring(s string) int {
 }
 
 func main() {
-	str1 := "0111"
-	res := lengthOfLongestSubstring(str1)
+	str1 := "aust"
+	res := lengthOfLongestSubstring2(str1)
 
 	// Displaying the result
 	fmt.Println("Result: ", res)
