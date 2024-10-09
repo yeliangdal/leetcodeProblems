@@ -31,7 +31,6 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 package main
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -86,7 +85,7 @@ func lengthOfLongestSubstring(s string) int {
 	return maxLength
 }
 
-func lengthOfLongestSubstring2(s string) int {
+func LengthOfLongestSubstring2(s string) int {
 	// Create a map to store the last index of each character
 	charIndexMap := make(map[byte]int)
 	maxLength := 0
@@ -109,12 +108,4 @@ func lengthOfLongestSubstring2(s string) int {
 	}
 
 	return maxLength
-}
-
-func main() {
-	str1 := "aust"
-	res := lengthOfLongestSubstring2(str1)
-
-	// Displaying the result
-	fmt.Println("Result: ", res)
 }
