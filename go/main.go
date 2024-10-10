@@ -9,10 +9,12 @@ func main() {
 	// res := LengthOfLongestSubstring2(str1)
 	// fmt.Println("Result: ", res)
 
-	nums1 := []int{}
-	nums2 := []int{1}
-	median := FindMedianSortedArrays(nums1, nums2)
+	// nums1 := []int{}
+	// nums2 := []int{1}
+	// median := FindMedianSortedArrays(nums1, nums2)
+	// fmt.Println("median: ", median)
 
-	// Displaying the result
-	fmt.Println("median: ", median)
+	s := ""
+	subS := LongestPalindrome(s)
+	fmt.Println("Longest Palindrome: ", subS)
 }
