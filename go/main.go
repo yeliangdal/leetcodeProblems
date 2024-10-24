@@ -15,6 +15,6 @@ func main() {
 	// fmt.Println("median: ", median)
 
 	s := ""
-	subS := LongestPalindrome(s)
+	subS := LongestPalindrome1(s)
 	fmt.Println("Longest Palindrome: ", subS)
 }

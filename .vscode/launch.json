@@ -5,6 +5,27 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Solution",
+            "request": "launch",
+            "mainClass": "javaLeetcode.Solution",
+            "projectName": "leetcodeProblems_708ff91a"
+        },
+        {
+            "type": "java",
+            "name": "Solution",
+            "request": "launch",
+            "mainClass": "java.Solution",
+            "projectName": "leetcodeProblems_708ff91a"
+        },
+        {
+            "type": "java",
+            "name": "preorderTraversal",
+            "request": "launch",
+            "mainClass": "java.preorderTraversal",
+            "projectName": "leetcodeProblems_708ff91a"
+        },
+        {
             "name": "Connect to server",
             "type": "go",
             "request": "attach",

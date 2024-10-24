@@ -60,14 +60,14 @@ func LongestPalindrome1(s string) string {
 }
 
 // o(n^2)
-func LongestPalindrome(s string) string {
-	maxLength := 0
-	left, right := 0, 0
-	for i := 0; i < len(s); i++ {
-		if
-	}
-	return s[left:right]
-}
+// func LongestPalindrome(s string) string {
+// 	maxLength := 0
+// 	left, right := 0, 0
+// 	for i := 0; i < len(s); i++ {
+// 		if
+// 	}
+// 	return s[left:right]
+// }
 
 func isPalindrome(s string) bool {
 	if len(s) == 1 {
