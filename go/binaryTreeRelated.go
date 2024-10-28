@@ -2,6 +2,7 @@ package main
 
 import (
 	"math"
+	"strconv"
 )
 
 func findTilt(root *TreeNode) int {
@@ -62,8 +63,8 @@ func findLargest(nums []int) (index int, max int) {
 
 func printTree(root *TreeNode) [][]string {
 	height := getHeight(root)
-	m := height + 1
-	n := int(math.Exp2(float64(height+1))) - 1
+	m := height
+	n := int(math.Exp2(float64(height))) - 1
 	ret := make([][]string, m)
 	for i := range ret {
 		ret[i] = make([]string, n)
@@ -80,12 +81,18 @@ func placeToMatrix(node *TreeNode, matrix [][]string, height int, c int, row int
 		return
 	}
 	if row == 0 {
-		matrix[row][c] = string(node.Val)
+		matrix[row][c] = strconv.Itoa(node.Val)
 	}
-	matrix[row+1][c-int(math.Exp2(float64(c-row-1)))] = string(node.Left.Val)
-	matrix[row+1][c+int(math.Exp2(float64(c-row-1)))] = string(node.Right.Val)
-	placeToMatrix(node.Left, matrix, height, c+int(math.Exp2(float64(c-row-1))), row+1)
-	placeToMatrix(node.Right, matrix, height, c-int(math.Exp2(float64(c-row-1))), row+1)
+	if node.Left != nil {
+		matrix[row+1][c-int(math.Exp2(float64(height-row-2)))] = strconv.Itoa(node.Left.Val)
+
+	}
+	if node.Right != nil {
+		matrix[row+1][c+int(math.Exp2(float64(height-row-2)))] = strconv.Itoa(node.Right.Val)
+	}
+
+	placeToMatrix(node.Left, matrix, height, c-int(math.Exp2(float64(height-row-2))), row+1)
+	placeToMatrix(node.Right, matrix, height, c+int(math.Exp2(float64(height-row-2))), row+1)
 }
 
 func getHeight(root *TreeNode) int {

@@ -5,18 +5,21 @@ import (
 )
 
 func main() {
-	// str1 := "aust"
-	// res := LengthOfLongestSubstring2(str1)
-	// fmt.Println("Result: ", res)
-
-	// nums1 := []int{}
-	// nums2 := []int{1}
-	// median := FindMedianSortedArrays(nums1, nums2)
-	// fmt.Println("median: ", median)
-
-	// s := ""
-	// subS := LongestPalindrome1(s)
-	input := []int{3, 2, 1}
-	nodes := constructMaximumBinaryTree(input)
-	fmt.Println("results: ", nodes)
+	root := TreeNode{
+		Val: 1,
+	}
+	node1 := TreeNode{
+		Val: 2,
+	}
+	node2 := TreeNode{
+		Val: 3,
+	}
+	node3 := TreeNode{
+		Val: 4,
+	}
+	root.Left = &node1
+	root.Right = &node2
+	node1.Right = &node3
+	output := printTree(&root)
+	fmt.Println("results: ", output)
 }
