@@ -14,7 +14,9 @@ func main() {
 	// median := FindMedianSortedArrays(nums1, nums2)
 	// fmt.Println("median: ", median)
 
-	s := ""
-	subS := LongestPalindrome1(s)
-	fmt.Println("Longest Palindrome: ", subS)
+	// s := ""
+	// subS := LongestPalindrome1(s)
+	input := []int{3, 2, 1}
+	nodes := constructMaximumBinaryTree(input)
+	fmt.Println("results: ", nodes)
 }
